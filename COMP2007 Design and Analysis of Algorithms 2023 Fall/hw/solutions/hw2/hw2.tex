@@ -1,0 +1,211 @@
+\documentclass{article}
+\usepackage{xeCJK}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+\setCJKmainfont{SimSun}
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+\linespread{1.2}
+
+
+\begin{document}
+\setlength{\parindent}{0pt}
+
+一：
+\\
+递归深度为 $\log n$，每层需要 $n$ 的时间，因此总的时间复杂度为 $O(n \log n)$。
+\\
+二：
+\begin{algorithm}
+    \caption{\textbf{binary\_search}}
+    \label{alg:search}
+    \begin{algorithmic}[1]
+        \REQUIRE array sorted in ascending order, target, lo, hi
+        \ENSURE index of the target if found, -1 if not found
+        \STATE $mid = (lo + hi) // 2$
+        \WHILE{$lo \leq hi$}
+        \IF{$arr[mid] == target$}
+        \STATE \textbf{return} $mid$
+        \ELSIF{$arr[mid] < target$}
+        \STATE \textbf{return} $binary\_search(arr, target, mid + 1, hi)$
+        \ELSE
+        \STATE \textbf{return} $binary\_search(arr, target, lo, mid - 1)$
+        \ENDIF
+        \ENDWHILE
+        \STATE \textbf{return} $-1$
+    \end{algorithmic}
+\end{algorithm}
+
+上述算法采取二分查找的策略，每次查找比较数组中间的元素，
+如果中间元素大于目标值，则目标值在数组的前半部分，对前半部分进行递归调用，
+否则在后半部分， 对后半部分进行递归调用。
+
+该算法的时间复杂度的递归方程为
+$$
+T(n) = T(\frac{n}{2}) + 1
+$$
+由 Master定理， $1 = \Theta(n^{\log_{2}1}) = \Theta(1)$, 
+故 $T(n) = \Theta(n^{\log_{2}1}\log n) = \Theta(\log n)$ , 
+即此算法的时间复杂度为 $\Theta(\log n)$。 \\
+
+\newpage
+三：\\
+1.在 $S$ 中找出其中位数 $median$ 。 \\
+2.将 $S$ 中每个数与 $median$ 作差取绝对值，得到数组 $d$。\\
+3.在 $d$ 中找出第 $k$ 个小的数 $kmin$。 \\
+4.遍历 d， 找出小于等于 $kmin$ 对应的下标 $i$， 则所有的 $S[i]$ 构成最接近 $median$ 的 $k$ 个数。\\
+伪代码如下：
+
+\begin{algorithm}
+    \caption{\textbf{Search for k numbers closest to the median of S}}
+    \label{alg:search_k_median}
+    \begin{algorithmic}[1]
+        \REQUIRE $S$, $k$
+        \ENSURE $k$ numbers in $S$ that are closest to the median of $S$
+        \STATE $n = len(S)$
+        \STATE $median = Select(S, n // 2)$
+        \STATE $d = [\; ]$
+        \FOR{$i = 0$ to $n - 1$}
+        \STATE $d[i] = abs(S[i] - median)$
+        \ENDFOR
+        \STATE $kmin = Select(d, k)$
+        \STATE $returnS = [\; ]$
+        \FOR{$i = 0$ to $n - 1$}
+        \IF{$d[i] \leq kmin$}
+        \STATE $returnS.append(S[i])$
+        \ENDIF 
+        \ENDFOR
+        \STATE \textbf{return} $returnS$
+    \end{algorithmic}
+\end{algorithm}
+
+\newpage
+下面是 $Select$ 算法的伪代码，实现在 $O(n)$ 的时间复杂度下找出一组数中第 $k$ 个小的数。 
+\begin{algorithm}
+    \caption{\textbf{find the k-th smallest number in arr}}
+    \label{alg:search_k-th_small}
+    \begin{algorithmic}[1]
+        \REQUIRE $arr$, $k$
+        \ENSURE the $k-th$ smallest number in $arr$
+        \STATE $n = len(arr)$
+        \FOR{$i = 0$ to $n / 5$}
+        \STATE $insert\_sort(arr[(i - 1)*5 + 1:\; (i - 1)*5 + 5])$
+        \STATE $swap(arr[i], arr[(i -1)*5 + 3])$
+        \ENDFOR
+        \STATE $x = Select(arr[: n // 5], n / 10)$
+        \STATE $index = partition(arr, x)$
+        \IF{$k == index$}
+        \STATE \textbf{return} $x$
+        \ELSIF{$k < index$}
+        \STATE \textbf{return} $Select(arr[: index -1 ], k)$
+        \ELSE 
+        \STATE \textbf{return} $Select(arr[index + 1:], k - index)$      
+        \ENDIF  
+    \end{algorithmic}
+\end{algorithm}
+
+\newpage
+下面是 $partition$ 算法的伪代码，实现在 $O(n)$ 的时间复杂度下将数组进行划分。
+\begin{algorithm}
+    \caption{\textbf{partition the arr}}
+    \label{alg:partition}
+    \begin{algorithmic}[1]
+        \REQUIRE $arr$, $x$
+        \ENSURE the index of $x$
+        \STATE $n = len(arr)$
+        \STATE $i = 0$
+        \FOR{$j = 1$ to $n - 1$}
+        \IF{$arr[j] \leq x$}
+        \STATE $i = i + 1$
+        \STATE $swap(arr[i], arr[j])$
+        \ENDIF
+        \ENDFOR
+        \STATE \textbf{return} $i$
+    \end{algorithmic}
+\end{algorithm}
+
+\newpage
+四：
+\\
+1.选取两组数的第 $k / 2$ 个数k1、k2进行比较。
+\\
+2.若k1小于k2，则将第一组数前 $k / 2$ 个数排除，重新计算 $k$, 在剩余数中寻找。
+\\
+3.否则排除第二组数的前 $k / 2$ 个数排除，重新计算 $k$, 在剩余数中寻找。
+\\
+4.直到 $k = 1$，此时返回两组数中当前索引下的更小的一个数，即为第 $k / 2$ 大的数。
+
+\begin{algorithm}
+    \caption{\textbf{search for two arrays' k-th number}}
+    \label{alg:arrays_k-th}
+    \begin{algorithmic}[1]
+        \REQUIRE $nums1$, $nums2$, $k$
+        \ENSURE $the\; median\; of\; the\; two\; arrays$
+        \STATE $length1 = len(nums1)$
+        \STATE $length2 = len(nums2)$
+        \STATE $index1 = index2 = 0$
+        \WHILE{$true$}
+        \IF{$index1 == index2$}
+        \STATE \textbf{return} $nums2[index2 + k - 1]$
+        \ENDIF
+        \IF{$index2 == length2$}
+        \STATE \textbf{return} $nums1[index1 + k - 1]$
+        \ENDIF
+        \IF{$k == 1$}
+        \STATE \textbf{return} $min(nums1[index1], nums2[index2])$
+        \ENDIF
+        \STATE $new\_index1 = min(index1 + k / 2, length1) - 1$
+        \STATE $new\_index2 = min(index2 + k / 2, length2) - 1$
+        \IF{$nums1[new\_index1] \leq nums2[new\_index2]$}
+        \STATE $k = k - (new\_index1 - index1 + 1)$
+        \STATE $index1 = new\_index1 + 1$
+        \ELSE
+        \STATE $k = k - (new\_index2 - index2 + 1)$
+        \STATE $index2 = new\_index2 + 1$
+        \ENDIF
+        \ENDWHILE
+    \end{algorithmic}
+\end{algorithm}
+
+上述算法实现了在 $O(log(m + n))$ 的时间复杂度下找出两组升序排列的数中的第 $k$ 大的数，
+若两组数总长度为偶数，则使用上述算法找出第 $(m + n) / 2$ 大和第 $(m + n) / 2 + 1$ 
+大的数并取两者的平均值；若两组数总长度为奇数，则使用上述算法找出第 $(m + n) / 2$ 大的数即可。
+时间复杂度均为 $O(log(m + n))$ 
+
+
+\newpage
+五：
+\\
+1.遍历数组，统计每个数字出现的次数，存入字典。
+\\
+2.使用快速排序对字典的值进行排序，得到一个递减的序列。
+\\
+3.选出递减序列前k个键值对的键。
+\\
+时间复杂度为$O(n \log n)$
+
+\begin{algorithm}
+    \caption{\textbf{top k numbers}}
+    \label{alg:top_k}
+    \begin{algorithmic}[1]
+        \REQUIRE $nums$, $k$
+        \ENSURE top k numbers
+        \STATE $map = \{\}$
+        \STATE $n = len(nums)$
+        \FOR{$i = 0$ to $n - 1$}
+        \STATE $key = nums[i]$
+        \STATE $map[key] = map[key] + 1$
+        \ENDFOR
+        \STATE $sorted\_map = quick\_sort(map,\; map.items())$
+        \STATE $return\_nums = [\;]$
+        \FOR{$i = 0$ to $n - 1$}
+        \IF{$i \leq k$}
+        \STATE $return\_nums.append(sorted\_map[i][0])$
+        \ENDIF
+        \ENDFOR
+        \STATE \textbf{return} $return\_nums$
+    \end{algorithmic}
+\end{algorithm}
+
+\end{document}

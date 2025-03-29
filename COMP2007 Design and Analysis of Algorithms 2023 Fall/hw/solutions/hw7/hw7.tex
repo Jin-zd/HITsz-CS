@@ -1,0 +1,25 @@
+\documentclass{article}
+\usepackage{xeCJK}
+\usepackage{amsmath}
+
+
+\setCJKmainfont{Microsoft YaHei}
+\linespread{1.5}
+
+
+\begin{document}
+一：\\
+题目1:\\
+使用bellman-ford算法，进行k次松弛操作即可限制边的数量，且该算法可以处理负权值边
+和k次条件下的负权值环。
+题目2:\\
+重新计算边的权值，在原有权值上加上边的终点的停留时间，即
+\[
+w(u, v) = length(u, v) + time(v)
+\]
+图上无负权值边且为单源最短路径，调用dijistra算法即可求出结果。
+\newpage
+三：\\
+构建图模型，将数字作为顶点，若两个数字满足“素数伴侣”条件，就在这两个顶点之间
+加上一条边，求出所得图的最大匹配数即为“最佳方案”的“素数伴侣”对数。
+\end{document}
