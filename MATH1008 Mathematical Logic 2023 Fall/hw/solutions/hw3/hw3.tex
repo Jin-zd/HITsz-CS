@@ -1,0 +1,93 @@
+\documentclass{article}
+\usepackage{xeCJK}
+\usepackage{amsmath}
+\usepackage{geometry}
+
+
+\setCJKmainfont{Microsoft YaHei}
+\linespread{1.5}
+\setlength{\parindent}{0pt}
+\geometry{a4paper,scale=0.75}
+
+\begin{document}
+1.\\
+(1)
+\[
+\begin{aligned}
+&(1)B \to A \quad \mbox{(假设)}\\
+&(2)\neg A \quad \mbox{(假设)} \\
+&(3)A \to \neg \neg A \quad \mbox{(定理12)} \\
+&(4)B \to \neg \neg A \quad \mbox{((1)(3)定理8)} \\
+&(5)\neg \neg B \to B \quad \mbox{(定理10)} \\
+&(6)\neg \neg B \to \neg \neg A \quad \mbox{((5)(4)定理8)} \\
+&(7)(\neg \neg B \to \neg \neg A) \to (\neg A \to \neg B) \quad \mbox{(公理3)} \\
+&(8)\neg A \to \neg B \quad \mbox{((6)(7)rmp分离规则)} \\
+&(9)\neg B \quad \mbox{((2)(8)rmp分离规则)} \\
+&(10)B \to A,\; \neg A \vdash \neg B \\
+&(11)B \to A \vdash (\neg A \to \neg B) \\
+&(12)(B \to A) \to (\neg A \to \neg B) \\
+\end{aligned}
+\]
+(2)
+\[
+\begin{aligned}
+&(1)A \to B \quad \mbox{(假设)}\\
+&(2)B \to C \quad \mbox{(假设)} \\
+&(3)A \quad \mbox{(假设)} \\
+&(4)B \quad \mbox{((3)(1)rmp分离规则)} \\
+&(5)C \quad \mbox{((4)(2)rmp分离规则)} \\
+&(6)A \to B,\; B \to C,\; A \vdash C \\
+&(7)A \to B,\; B \to C \vdash A \to C \\
+&(8)A \to B \vdash (B \to C) \to (A \to C) \\
+&(9)(A \to B) \to ((B \to C) \to (A \to C)) \\
+\end{aligned}
+\]
+(3)
+\[
+\begin{aligned}
+&(1)(A \to B) \to A \quad \mbox{(假设)}\\
+&(2)\neg A \to A \quad \mbox{((1)定理18)} \\
+&(3)(\neg A \to A) \to A \quad \mbox{(定理9)} \\
+&(4)A \quad \mbox{((2)(3)rmp分离规则)} \\
+&(5)(A \to B) \to A \vdash A \\
+&(6)((A \to B) \to A) \to A \\
+\end{aligned}
+\]
+(4)
+\[
+\begin{aligned}
+&(1)\neg (A \to B) \quad \mbox{(假设)}\\
+&(2)B \quad \mbox{(假设)} \\
+&(3)\neg A \to (A \to B) \quad \mbox{(定理6)} \\
+&(4)(\neg A \to (A \to B)) \to (\neg (A \to B) \to \neg \neg A)\quad \mbox{(定理14)} \\
+&(5)\neg (A \to B) \to \neg \neg A \quad \mbox{((3)(4)rmp分离规则)} \\
+&(6)\neg \neg A \to A \quad \mbox{(定理10)}\\
+&(7)\neg (A \to B) \to A \quad \mbox{((5)(6)定理8)}\\
+&(8)A \quad \mbox{((1)(7)rmp分离规则)}\\
+&(9)\neg (A \to B),\; B \vdash A\\
+&(9)\neg (A \to B) \vdash B \to A \\
+&(9)(\neg (A \to B)) \to (B \to A) \\
+\end{aligned}
+\]
+2.\\
+(1)
+\[
+\begin{aligned}
+&(1)(\neg A \to \neg B) \to (B \to A) \quad \mbox{(公理3)}\\
+&(2)B \to ((\neg A \to \neg B) \to A) \quad \mbox{(定理2)} \\
+&(3)A \to ((\neg A \to \neg B) \to A)\quad \mbox{(公理1)} \\
+&(4)\neg \neg A \to A \quad \mbox{(定理10)} \\
+&(5)\neg \neg A \to ((\neg A \to \neg B) \to A) \quad \mbox{((4)(3)定理8)} \\
+&(6)(\neg A \to B) \to ((\neg A \to \neg B) \to A) \quad \mbox{((2)(5)定理18)} \\
+\end{aligned}
+\]
+(2)
+\[
+\begin{aligned}
+&(1)B \to (\neg A \to B) \quad \mbox{(公理1)}\\
+&(2)(\neg A \to B) \to ((\neg A \to \neg B) \to A) \quad \mbox{(公理3)} \\
+&(3)B \to ((\neg A \to \neg B) \to A) \quad \mbox{((1)(2)定理8)} \\
+&(4)(\neg A \to \neg B) \to (B \to A) \quad \mbox{(定理2)} \\
+\end{aligned}
+\]
+\end{document}

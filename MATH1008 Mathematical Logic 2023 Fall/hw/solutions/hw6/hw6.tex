@@ -1,0 +1,19 @@
+\documentclass{article}
+\usepackage{xeCJK}
+\usepackage{amsmath}
+\usepackage{geometry}
+
+
+\setCJKmainfont{Microsoft YaHei}
+\linespread{1.5}
+\setlength{\parindent}{0pt}
+\geometry{a4paper,scale=0.75}
+
+\begin{document}
+(1)设 $U = \{0, 1\}, \overline{P} = \{0\}, \overline{Q} = \{1\}, \overline{f(1)} = 0, \overline{f(2)} = 1, \overline{a} = 0$,\\
+此时$\overline{\forall x P(x)} = \overline{P(0)} \wedge \overline{P(1)} = F$,\\    
+故 $\overline{\forall x P(x) \to Q(f(a))} = T$ \\
+(2)设$U = \{0, 1\}, \overline{P} = \{(0, 0)\}, \overline{Q} = \{1\}, \overline{f(0)} = 0, \overline{f(1)} = 1, \overline{a} = 0$\\
+此时 $\overline{\neg P(f(x), a)} = \neg \overline{P(f(0), 0)} = \neg \overline{P(0, 0)} = F$,\\
+故 $\overline{\neg P(f(x), a) \to \forall x Q(x)} $
+\end{document}
