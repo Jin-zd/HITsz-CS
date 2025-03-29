@@ -1,0 +1,86 @@
+\documentclass{article}
+\usepackage{xeCJK}
+\usepackage{amsmath}
+
+\setCJKmainfont{Microsoft YaHei}
+\linespread{1.5}
+\setlength{\parindent}{0pt}
+
+
+\begin{document}
+一：\\
+(1) $R_1 = \Pi_{sno,cname,score}(SC \bowtie Course)$
+
+\[
+R_1 = \begin{pmatrix}
+1 & \text{DB} & 91 \\
+2 & \text{ML} & 84 \\
+2 & \text{EN} & 90 \\
+3 & \text{ML} & 78 \\
+4 & \text{DB} & 88
+\end{pmatrix}
+\]
+
+(2) $R_2 = \Pi_{sno,sage,sdept}(\sigma_{\neg(sage>19 \vee sdept='CS')}(Student))$
+
+\[
+R_2 = \begin{pmatrix}
+3 & 19 & \text{Math}
+\end{pmatrix}
+\]
+
+(3) $R_3 = \Pi_{sno,sage}(Student) - \Pi_{sno,sage}(\sigma_{cno=1001}(Student \bowtie SC))$
+
+\[
+R_3 = \begin{pmatrix}
+2 & 21 \\
+3 & 19
+\end{pmatrix}
+\]
+
+(4) $R_4 = \Pi_{sname}(Student \bowtie (\Pi_{sno,cno}(SC) \div \Pi_{cno}(\sigma_{score>90}(SC))))$
+
+\[
+R_4 = \begin{pmatrix}
+\text{Adam} \\
+\text{Lilin}
+\end{pmatrix}
+\]
+
+(5) $R_5 = \Pi_{sname}(Student \bowtie (SC \div \Pi_{cno}(\sigma_{sno=2}(SC))))$
+
+\[
+R_5 = \begin{pmatrix}
+\text{Lilith}
+\end{pmatrix}
+\]
+
+
+二.\\
+(1)
+\[
+\pi_{sno, sname} ((\sigma_{cno='001'} (SC) \bowtie Student) \cap (\sigma_{cno='002'} (SC) \bowtie Student)) 
+\]
+
+(2)
+\[
+\pi_{tno}(\sigma_{tc1.cno \neq tc2.cno} (\rho_{tc1}(TC) \underset{tc1.tno = tc2.tno}{\bowtie} \rho_{tc2}(TC)))
+\]
+
+(3)
+\[
+\pi_{cno, sno} (SC) - \pi_{sc1.cno, sc1.sno} 
+(\sigma_{sc1.score < sc2.score \wedge sc1.cno = sc2.cno} (\rho_{sc1}(SC) \times \rho_{sc2}(SC)))
+\]
+
+(4)
+\[
+\pi_{sname} (Student \bowtie ((\sigma_{tno = '01'}(SC \bowtie TC) - \sigma_{tno \neq '01'}(SC \bowtie TC)))) 
+\]
+
+(5)
+\[
+\pi_{sno} (\sigma_{dno='03'} (Student)) \cap \\
+\pi_{sc1.sno} (\sigma_{sc1.score \geq 60 \wedge sc2.score \geq 60 \wedge sc1.cno \neq sc2.cno} (\rho_{sc1}(SC) \bowtie \rho_{sc2}(SC)))
+\]
+\end{document}

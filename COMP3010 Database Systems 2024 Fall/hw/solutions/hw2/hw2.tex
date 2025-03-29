@@ -1,0 +1,31 @@
+\documentclass{article}
+\usepackage{xeCJK}
+\usepackage{amsmath}
+
+\setCJKmainfont{Microsoft YaHei}
+\linespread{1.5}
+\setlength{\parindent}{0pt}
+
+
+\begin{document}
+一.\\
+(1) $(BC)^+ = \{B, C, A, D, E\}$ \\
+(2) $\{A\}, \{B, C\}, \{E\}, \{C, D\}$ \\
+(3) 
+\[
+    F = \{A \to B, A \to C, CD \to E, B \to D, E \to A\}
+\]
+(4)属于 $1NF$, 对于候选键 $\{B, C\}$, 存在非主属性对其的部分函数依赖 $B \to D$，故
+该关系模式不属于 $2NF$\\
+(5) 
+\[
+    \{R1(A, B, C), R2(C, D, E), R3(B, D), R4(E, A)\}
+\]
+二.\\
+(1) 不保持函数依赖,
+$ABD$ 上有 $A \to BD$, $BC$ 上有 $B \to C$, $DE$ 上有 $D \to E$ \\
+上述合并得到的函数依赖集无法推导出$CE \to A$ \\
+(2) 不保持函数依赖,
+$ABD$ 上有 $A \to BD$, $BC$ 上有 $B \to C$, $CE$ 上有 $C \to E$ \\
+上述合并得到的函数依赖集无法推导出$E \to A$
+\end{document}
