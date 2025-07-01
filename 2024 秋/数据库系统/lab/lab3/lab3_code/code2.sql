@@ -1,0 +1,1 @@
+alter table user add index idx_account(account)

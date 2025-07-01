@@ -1,0 +1,89 @@
+\documentclass{article}
+\usepackage{xeCJK}
+\usepackage{amsmath}
+\usepackage{geometry}
+
+
+\setCJKmainfont{Microsoft YaHei}
+\linespread{1.5}
+\setlength{\parindent}{0pt}
+\geometry{a4paper,scale=0.75}
+
+\begin{document}
+(1):
+\[
+\begin{aligned}
+&(1) \neg A \to A,\; \neg A \vdash A \quad (\to -) \\
+&(2) \neg A \to A,\; A \vdash A \quad (\in) \\
+&(3) \neg A \to A \vdash A \quad (1)(2)(-) \\
+&(4) \vdash (\neg A \to A) \to A \quad (3)(\to +)
+\end{aligned}    
+\]
+(2)
+\[
+\begin{aligned}
+&(1) (A \vee B) \to C,\; A \vdash A \vee B \quad (\vee +) \\
+&(2) (A \vee B) \to C,\; A \vdash C \quad (1)(\to -) \\
+&(3) (A \vee B) \to C \vdash A \to C \quad (2)(\to +) \\
+&(4) (A \vee B) \to C,\; B \to A \vee B \quad (\vee +) \\
+&(5) (A \vee B) \to C,\; B \vdash C \quad (4)(\to -) \\
+&(6) (A \vee B) \to C \vdash B \to C \quad (5)(\to +) \\
+&(7) (A \vee B) \to C \vdash (A \to C) \wedge (B \to C) \quad (3)(6)(\wedge +) \\
+&(8) \vdash ((A \vee B) \to C) \to (A \to C) \wedge (B \to C) \quad (7)(\to +) \\
+&(9) (A \to C) \wedge (B \to C),\; A \vee B \vdash A \vee B \quad (\in) \\
+&(10) (A \to C) \wedge (B \to C),\; A \vee B,\; A \vdash A \to C \quad (\wedge -) \\
+&(11) (A \to C) \wedge (B \to C),\; A \vee B,\; A \vdash C \quad (10)(\to -) \\
+&(12) (A \to C) \wedge (B \to C),\; A \vee B,\; B \vdash B \to C \quad (\wedge -) \\
+&(13) (A \to C) \wedge (B \to C),\; A \vee B,\; B \vdash C \quad (12)(\to -) \\
+&(14) (A \to C) \wedge (B \to C),\; A \vee B \vdash C \quad (9)(11)(13)(\vee -) \\
+&(15) (A \to C) \wedge (B \to C) \vdash (A \vee B) \to C \quad (14)(\to +) \\
+&(16) \vdash (A \to C) \wedge (B \to C) \to ((A \vee B) \to C) \quad (15)(\to +) \\
+&(17) \vdash ((A \vee B) \to C) \leftrightarrow (A \to C) \wedge (B \to C) \quad (8)(16)(\leftrightarrow +)
+\end{aligned}    
+\]
+(3)
+\[
+\begin{aligned}
+&(1) A \wedge \neg B,\; A \to B \vdash A \quad (\wedge -) \\
+&(2) A \wedge \neg B,\; A \to B \vdash B \quad (1)(\to -) \\
+&(3) A \wedge \neg B,\; A \to B \vdash \neg B \quad (\wedge -) \\
+&(4) A \wedge \neg B \vdash \neg (A \to B) \quad (2)(3)(\neg +) \\
+&(5) \vdash A \wedge \neg B \to \neg (A \to B) \quad (\to +) \\
+&(6) \neg (A \to B),\; B \vdash B \quad (\in) \\
+&(7) \neg (A \to B),\; B, \; A \vdash B \quad (6)(+) \\
+&(8) \neg (A \to B),\; B \vdash (A \to B) \quad (7)(\to +) \\
+&(9) \neg (A \to B),\; B \vdash \neg (A \to B) \quad (\in) \\
+&(10) \neg (A \to B) \vdash \neg B \quad (8)(9)(\neg +) \\  
+&(11) \neg (A \to B),\; A,\; \neg A \vdash A \quad (\in) \\
+&(12) \neg (A \to B),\; A,\; \neg A \vdash \neg A \quad (\in) \\
+&(13) \neg (A \to B),\; A,\; \neg A \vdash B \quad (11)(12)(\neg -) \\
+&(14) \neg (A \to B),\; \neg A \vdash (A \to B) \quad (13)(\to +) \\
+&(15) \neg (A \to B),\; \neg A \vdash \neg (A \to B) \quad (\in) \\
+&(16) \neg (A \to B) \vdash \neg \neg A \quad (14)(15)(\neg +) \\
+&(17) \neg (A \to B) \vdash A \quad (16)(\neg \neg -) \\
+&(18) \neg (A \to B) \vdash A \wedge \neg B \quad (10)(17)(\wedge +) \\
+&(19) \vdash \neg (A \to B) \to A \wedge \neg B \quad (18)(\to +) \\
+&(20) \vdash \neg (A \to B) \leftrightarrow A \wedge \neg B \quad (5)(19)(\leftrightarrow +)
+\end{aligned}    
+\]
+(4)
+\[
+\begin{aligned}
+&(1) A \wedge B \vdash A \quad (\wedge -) \\
+&(2) A \wedge B \vdash B \quad (\wedge -) \\
+&(3) A \wedge B \vdash \neg A \vee B \quad (2)(\wedge +) \\
+&(4) A \wedge B \vdash A \wedge (\neg A \vee B) \quad (1)(3)(\wedge +) \\
+&(5) \vdash (A \wedge B) \to A \wedge (\neg A \vee B) \quad (4)(\to +) \\
+&(6) A \wedge (\neg A \vee B) \vdash A \quad (\wedge -) \\
+&(7) A \wedge (\neg A \vee B) \vdash \neg A \vee B \quad (\wedge -) \\
+&(8) A \wedge (\neg A \vee B),\; \neg A \vdash \neg A \quad (\in) \\
+&(9) A \wedge (\neg A \vee B),\; \neg A \vdash A \quad (\wedge -) \\
+&(10) A \wedge (\neg A \vee B),\; \neg A \vdash B \quad (8)(9)(\neg -) \\
+&(11) A \wedge (\neg A \vee B),\; B \vdash B \quad (\in) \\
+&(12) A \wedge (\neg A \vee B) \vdash B \quad (7)(10)(11)(\vee -) \\
+&(13) A \wedge (\neg A \vee B) \vdash A \wedge B \quad (6)(12)(\wedge +) \\
+&(14) \vdash A \wedge (\neg A \vee B) \to (A \wedge B) \quad(\to +) \\
+&(15) \vdash (A \wedge B) \leftrightarrow A \wedge (\neg A \vee B) \quad (5)(14)(\leftrightarrow +)
+\end{aligned}    
+\]
+\end{document}

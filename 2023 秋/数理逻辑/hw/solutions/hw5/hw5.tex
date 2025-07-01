@@ -1,0 +1,168 @@
+\documentclass{article}
+\usepackage{xeCJK}
+\usepackage{amsmath}
+\usepackage{geometry}
+
+
+\setCJKmainfont{Microsoft YaHei}
+\linespread{1.5}
+\setlength{\parindent}{0pt}
+\geometry{a4paper,scale=0.75}
+
+\begin{document}
+1.\\
+设 $P(x)$ 表示 $x$ 是无知的 \\
+设 $Q(x)$ 表示 $x$ 是教授 \\
+设 $R(x)$ 表示 $x$ 是虚荣的 \\
+(1)$\forall x (Q(x) \to \neg P(x))$ \\
+(2)$\forall x (P(x) \to R(x))$ \\
+(3)$\forall x (Q(x) \to \neg R(x))$ 
+
+2.\\
+(1)
+\[
+\begin{aligned}
+&(1)A \to \exists v B, A \vdash A \quad (\in) \\
+&(2)A \to \exists v B, A \vdash A \to \exists v B \quad (\in) \\
+&(3)A \to \exists v B, A \vdash \exists v B \quad (1)(2)(\to -) \\
+&(4)A \to \exists v B, A, B \vdash B \quad (\in) \\
+&(5)A \to \exists v B, A \vdash B \quad (3)(4)(\mbox{定理}10) \\
+&(6)A \to \exists v B \vdash A \to B \quad (5)(\to +) \\
+&(7)\vdash (A \to \exists v B) \to (A \to B) \quad (6)(\to +) \\
+&(8)(A \to B) \to \exists v (A \to B) \quad (\mbox{定理}2) \\
+&(9)\vdash (A \to \exists v B) \to \exists v (A \to B) \quad (7)(8)(PC\mbox{定理}8)
+\end{aligned}    
+\]
+(2)
+\[
+\begin{aligned}
+&(1)\exists v (A \to B), A \vdash \exists v (A \to B) \quad (\in) \\
+&(2)\exists v (A \to B), A, A \to B \vdash A \quad (\in) \\
+&(3)\exists v (A \to B), A, A \to B \vdash A \to B \quad (\in) \\
+&(4)\exists v (A \to B), A, A \to B \vdash B \quad (2)(3)(\to -) \\
+&(5)\exists v (A \to B), A \vdash B \quad (1)(4)(\mbox{定理}10) \\
+&(6)B \to \exists v B \quad (\mbox{定理}2) \\
+&(7)\exists v (A \to B), A \vdash \exists v B \quad (5)(6)(\to -) \\
+&(8)\exists v (A \to B) \vdash A \to \exists v B \quad (7)(\to -) \\
+&(9)\vdash \exists v (A \to B) \to (A \to \exists v B) \quad (8)(\to -)
+\end{aligned}    
+\]
+(3)
+\[
+\begin{aligned}
+&(1)\forall v B \to A, B \vdash B \quad (\in) \\
+&(2)\forall v B \to A, B \vdash \forall v B \quad (\mbox{定理}4) \\
+&(3)\forall v B \to A, B \vdash \forall v B \to A \quad (\in) \\
+&(4)\forall v B \to A, B \vdash A \quad (2)(3)(\to -) \\
+&(5)\forall v B \to A \vdash B \to A  \quad (4)(\to +) \\
+&(6)\vdash (\forall v B \to A) \to (B \to A) \quad (4)(\to +) \\
+&(7)(B \to A) \to \exists v (B \to A) \quad (\mbox{定理}2) \\
+&(8)\vdash (\forall v B \to A) \to \exists v (B \to A) \quad (6)(7)(PC\mbox{定理}8)
+\end{aligned}    
+\]
+(4)
+\[
+\begin{aligned}
+&(1)\exists v (B \to A), \forall v B \vdash \exists v (B \to A) \quad (\in) \\
+&(2)\exists v (B \to A), \forall v B, B \to A \vdash \forall v B \quad (\in) \\
+&(3)\exists v (B \to A), \forall v B, B \to A \vdash B \quad (2)(\mbox{定理}1) \\
+&(4)\exists v (B \to A), \forall v B, B \to A \vdash B \to A \quad (\in) \\
+&(5)\exists v (B \to A), \forall v B, B \to A \vdash A  \quad (3)(4)(\to -) \\
+&(6)\exists v (B \to A), \forall v B \vdash A \quad (1)(5)(\mbox{定理}10) \\
+&(7)\exists v (B \to A) \vdash \forall v B \to A \quad (6)(\to +) \\
+&(8)\vdash \exists v (B \to A) \to (\forall v B \to A) \quad (7)(\to +)
+\end{aligned}    
+\]
+3.\\
+(1)
+\[
+\begin{aligned}
+&(1)\forall x (A \to B), A \vdash \forall x (A \to B) \quad (\in) \\
+&(2)\forall x (A \to B) \to (\forall x A \to \forall x B) \quad (A_5) \\
+&(3)\forall x (A \to B), A \vdash \forall x A \to \forall x B \quad (1)(2)(\to -) \\
+&(4)\forall x (A \to B), A \vdash A \quad (\in) \\
+&(5)A \to \forall x A \quad (A_6) \\
+&(6)\forall x (A \to B), A \vdash \forall x A \quad (4)(5)(\to -) \\
+&(7)\forall x (A \to B), A \vdash \forall x B \quad (3)(6)(\to -) \\
+&(8)\forall x (A \to B) \vdash (A \to \forall x B) \quad (7)(\to +) \\
+&(9)A \to \forall x B, A \vdash A \quad (\in) \\
+&(10)A \to \forall x B, A \vdash A \to \forall x B \quad (\in) \\
+&(11)A \to \forall x B, A \vdash \forall x B \quad (9)(10)(\to -) \\
+&(12)\forall x B \to B \quad (\mbox{定理}1) \\
+&(13)A \to \forall x B, A \vdash B \quad (11)(12)(\to -) \\
+&(14)A \to \forall x B \vdash A \to B \quad (13)(\to +) \\
+&(15)A \to \forall x B \vdash \forall x (A \to B) \quad (14)(\mbox{定理4}) \\
+&(16)\forall x (A \to B) \vdash \dashv (A \to \forall x B) \quad (8)(15)(\vdash \dashv  +)
+\end{aligned}    
+\]
+(2)
+\[
+\begin{aligned}
+&(1)\forall x (A \to B), \exists x A \vdash \exists x A \quad (\in) \\
+&(2)\forall x (A \to B), \exists x A, A \vdash \forall x (A \to B) \quad (\in) \\
+&(3)\forall x (A \to B) \to (A \to B) \quad (\mbox{定理}1) \\
+&(4)\forall x (A \to B), \exists x A, A \vdash A \to B \quad (2)(3)(\to -) \\
+&(5)\forall x (A \to B), \exists x A, A \vdash A \quad (\in) \\
+&(6)\forall x (A \to B), \exists x A, A \vdash B \quad (4)(5)(\to -) \\
+&(7)\forall x (A \to B), \exists x A \vdash B \quad (1)(6)(\mbox{定理}10) \\
+&(8)\forall x (A \to B) \vdash \exists x A \to B  \quad (7)(\to +) \\
+&(9)\exists x A \to B, A \vdash A \quad (\in) \\
+&(10)\exists x A \to B, A \vdash \exists x A \quad (9)(\mbox{定理}2) \\
+&(11)\exists x A \to B, A \vdash \exists x A \to B \quad (\in) \\
+&(12)\exists x A \to B, A \vdash B \quad (10)(11)(\to -) \\
+&(13)\exists x A \to B \vdash A \to B \quad (12)(\to +) \\
+&(14)\exists x A \to B \vdash \forall x (A \to B) \quad (13)(\mbox{定理}4) \\
+&(15)\forall x (A \to B) \vdash \dashv \exists x A \to B \quad (8)(14)(\vdash \dashv  +)
+\end{aligned}
+\]
+(3)
+\[
+\begin{aligned}
+&(1)\forall x (A \wedge B) \vdash \forall x (A \wedge B) \quad (\in) \\
+&(2)\forall x (A \wedge B) \to (A \wedge B) \quad (\mbox{定理}1) \\
+&(3)\forall x (A \wedge B) \vdash A \wedge B \quad (1)(2)(\to -) \\
+&(4)\forall x (A \wedge B) \vdash A \quad (3)(\wedge -) \\
+&(5)\forall x (A \wedge B) \vdash B \quad (3)(\wedge -) \\
+&(6)\forall x (A \wedge B) \vdash \forall x A \quad (4)(\mbox{定理}5) \\
+&(7)\forall x (A \wedge B) \vdash \forall x B \quad (5)(\mbox{定理}5) \\
+&(8)\forall x (A \wedge B) \vdash \forall x A \wedge \forall x B \quad (6)(7)(\wedge +) \\
+&(9)\forall x A \wedge \forall x B \vdash \forall x A \wedge \forall x B \quad (\in) \\
+&(10)\forall x A \wedge \forall x B \vdash \forall x A \quad (9)(\wedge -) \\
+&(11)\forall x A \to A \quad (\mbox{定理}1) \\
+&(12)\forall x A \wedge \forall x B \vdash A \quad (10)(11)(\to -) \\
+&(13)\forall x A \wedge \forall x B \vdash \forall x B \quad (10)(\wedge -) \\
+&(14)\forall x B \to B \quad (\mbox{定理}1) \\
+&(15)\forall x A \wedge \forall x B \vdash B \quad (13)(14)(\to -) \\
+&(16)\forall x A \wedge \forall x B \vdash A \wedge B \quad (12)(15)(\wedge +) \\
+&(17)\forall x A \wedge \forall x B \vdash \forall x (A \wedge B) \quad (16)(\mbox{定理}5) \\ 
+&(18)\forall x (A \wedge B) \vdash \dashv \forall x A \wedge \forall x B \quad (8)(17)(\vdash \dashv  +)
+\end{aligned}    
+\]
+(4)
+\[
+\begin{aligned}
+&(1)\exists x (A \vee B) \vdash \exists x (A \vee B) \quad (\in) \\
+&(2)\exists x (A \vee B), A \vee B \vdash A \vee B \quad (\in) \\
+&(3)\exists x (A \vee B), A \vee B, A \vdash A \quad (\in) \\
+&(4)\exists x (A \vee B), A \vee B, A \vdash \exists x A \quad (3)(\mbox{定理}2) \\
+&(5)\exists x (A \vee B), A \vee B, A \vdash \exists x A \vee \exists x B \quad (4)(\vee +) \\
+&(6)\exists x (A \vee B), A \vee B, B \vdash B \quad (\in) \\
+&(7)\exists x (A \vee B), A \vee B, B \vdash \exists x B \quad (6)(\mbox{定理}2) \\
+&(8)\exists x (A \vee B), A \vee B, B \vdash \exists x A \vee \exists x B \quad (7)(\vee +) \\
+&(9)\exists x (A \vee B), A \vee B \vdash \exists x A \vee \exists x B \quad (2)(5)(8)(\vee -) \\
+&(10)\exists x (A \vee B) \vdash \exists x A \vee \exists x B \quad (1)(9)(\mbox{定理}10) \\
+&(11)\exists x A \vee \exists x B \vdash \exists x A \vee \exists x B \quad (\in) \\
+&(12)\exists x A \vee \exists x B, \exists x A \vdash \exists x A \quad (\in) \\
+&(13)\exists x A \vee \exists x B, \exists x A, A \vdash A \quad (\in) \\
+&(14)\exists x A \vee \exists x B, \exists x A, A \vdash A \vee B \quad (13)(\vee +) \\
+&(15)\exists x A \vee \exists x B, \exists x A \vdash A \vee B \quad (12)(14)(\mbox{定理}10)\\
+&(16)\exists x A \vee \exists x B, \exists x B \vdash \exists x B \quad (\in) \\
+&(17)\exists x A \vee \exists x B, \exists x B, B \vdash B \quad (\in) \\ 
+&(18)\exists x A \vee \exists x B, \exists x B, B \vdash A \vee B \quad (17)(\vee +) \\
+&(19)\exists x A \vee \exists x B, \exists x B \vdash A \vee B \quad (16)(18)(\mbox{定理}10)\\
+&(20)\exists x A \vee \exists x B \vdash A \vee B \quad (11)(15)(19)(\vee -) \\
+&(21)\exists x A \vee \exists x B \vdash \exists x (A \vee B) \quad (20)(\mbox{定理}2) \\
+&(22)\exists x (A \vee B) \vdash \dashv \exists x A \vee \exists x B \quad (10)(21)(\vdash \dashv  +)
+\end{aligned}    
+\]
+\end{document}

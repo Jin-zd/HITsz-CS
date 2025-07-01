@@ -1,0 +1,26 @@
+\documentclass{article}
+\usepackage{xeCJK}
+\usepackage{amsmath}
+
+
+\setCJKmainfont{Microsoft YaHei}
+\linespread{1.5}
+
+\begin{document}
+一：\\
+\[
+\pi[1] = 0,
+\pi[2] = 1,
+\pi[3] = 2,
+\pi[4] = 3,
+\]
+二：\\
+\[
+shift[w] =
+\begin{cases}
+    m - 1 - max{i < m - 1 | P[i] = w},& if\; w\; is\; in\; P[0 \cdots m - 2]\\
+    m,& otherwise.
+\end{cases} 
+\]
+其中 $m$ 为模式串长度。
+\end{document}

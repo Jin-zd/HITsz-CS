@@ -1,0 +1,194 @@
+\documentclass{article}
+\usepackage{xeCJK}
+\usepackage{amsmath}
+\usepackage{geometry}
+
+
+\setCJKmainfont{Microsoft YaHei}
+\linespread{1.5}
+\setlength{\parindent}{0pt}
+\geometry{a4paper,scale=0.75}
+
+\begin{document}
+1.\\
+(1) 设 $p$ 为大学里的本科生，$q$ 为大学里的研究生：
+\[ (p \wedge \neg q) \vee (q \wedge \neg p) \]
+(2) 设 $p$ 为接到超速罚单， $q$ 为车速超过每小时 100 公里：
+\[ p \to q\]
+(3) 设 $p$ 为年满 18 周岁， $q$ 为有选举权：
+\[
+\neg p \to \neg q 
+\]
+2.\\
+(2)对任意指派 $v$，有
+\[
+\begin{aligned}
+    (\neg A \to \neg B)^v & = 1 - (\neg A)^v + (\neg A)^v \cdot (\neg B) \\
+                          & = 1 - (1 - A^v) + (1 - A^v) \cdot (1 - B^v) \\
+                          & = 1 - B^v + B^v \cdot A^v \\
+                          & = (B \to A)^v
+\end{aligned}    
+\]
+故该逻辑等价成立。\\
+(4)对任意指派 $v$, 有
+\[
+\begin{aligned}
+    (A \to (B \to C))^v & = 1 - A^v + A^v \cdot (B \to C)^v \\
+                        & = 1 - A^v + A^v \cdot (1 - B^v + B^v \cdot C^v) \\
+                        & = 1 - A^v \cdot B^v + (A^v \cdot B^v) \cdot C^v \\
+                        & = 1 - (A \wedge B)^v + (A \wedge B)^v \cdot C^v \\
+                        & = (A \wedge B \to C)^v
+\end{aligned}
+\]
+故该逻辑等价成立。\\
+(6) 对任意指派 $v$，有
+\[
+\begin{aligned}
+    1 & = (\neg A \vee B)^v \\
+      & = (\neg A)^v + B^v - (\neg A)^v \cdot B^v \\
+      & = 1 - A^v + B^v -  (1 - A^v) \cdot B^v \\
+      & = 1 -  A^v + A^v \cdot B^v
+\end{aligned}
+\]
+即
+\begin{equation}
+    A^v \cdot B^v = A^v 
+\end{equation}
+同样的，有
+\[
+\begin{aligned}
+    1 & = (A \to B \wedge C)^v \\
+      & = 1 - A^v + A^v \cdot (B \wedge C)^v \\
+      & = 1 - A^v + A^v \cdot B^v \cdot C^v 
+\end{aligned}
+\]
+即
+\begin{equation}
+    A^v \cdot B^v \cdot C^v = A^v
+\end{equation}
+而
+\begin{equation}
+    \begin{split}
+        (\neg B \to C)^v & = 1 - (\neg B)^v + (\neg B)^v \cdot C^v \\
+                         & = 1 - (1 - B^v) + (1 - B^v) \cdot C^v \\
+                         & = B^v + C^v - B^v \cdot C^v 
+    \end{split}    
+\end{equation}
+当 $A^v = 1$ 时，由 式(1)和式(2) 可得 $B^v = 1, \; C^v = 1$，此时式(3)成立，
+当 $A^v = 0$ 时，由 式(1)和式(2) 无法得出 $B^v, \; C^v$ 的值，此时无法判断式(3)是否成立，
+故该逻辑蕴含不成立。\\
+3.\\
+(1)
+\[
+\begin{aligned}
+    \neg(q \to p) \wedge (r \to \neg s) & = \neg (\neg q \vee p) \wedge (\neg r \vee \neg s) \\
+                                        & = q \wedge \neg p \wedge (\neg r \vee \neg s) \mbox{(合取范式)}\\
+                                        & = (q \wedge \neg p \wedge \neg r) \vee (q \wedge \neg p \wedge \neg s) \mbox{(析取范式)}
+\end{aligned}    
+\]
+(2)
+\[
+\begin{aligned}
+    \neg p \wedge q \to r & = \neg (\neg p \vee q) \wedge r \\
+                          & = p \wedge \neg q \wedge r \mbox{(析取范式)} \\
+                          & = (p \wedge \neg q \wedge r) \mbox{(合取范式)} 
+\end{aligned}    
+\]
+(3)\
+\[
+\begin{aligned}
+    \neg (p \vee q) \leftrightarrow p \wedge q & = (\neg (p \vee q) \wedge p \wedge q) \vee (\neg \neg(p \vee q) \wedge \neg (p \wedge q)) \\
+                                               & = (p \vee q) \wedge (\neg p \vee \neg q)\mbox{(合取范式)} \\
+                                               & = ((p \vee q) \wedge \neg p) \vee ((p \vee q) \wedge \neg q) \\
+                                               & = (p \wedge \neg q) \vee (q \wedge \neg p) \vee (p \wedge \neg q) \vee (q \wedge \neg q) \\
+                                               & = (q \wedge \neg p) \vee (p \wedge \neg q)\mbox{(析取范式)}
+\end{aligned}    
+\]
+\newpage 
+4.\\
+(1) 
+\begin{table}[h!]
+    \begin{center}
+      \caption{$p \to p \wedge q$ 真值表}
+      \setlength{\tabcolsep}{8mm} {
+      \begin{tabular}{|c|c|c|c|} 
+        \textbf{$p$} & \textbf{$q$} & \textbf{$p \wedge q$} & \textbf{$p \to p \wedge q$}\\
+        \hline
+        0 & 0 & 0 & 1\\
+        0 & 1 & 0 & 1\\
+        1 & 0 & 0 & 0\\
+        1 & 1 & 1 & 1\\
+      \end{tabular} }
+    \end{center}
+  \end{table}
+\\
+从而 $p \to p \wedge q$ 的主合取范式为 
+\[  
+(\neg p \vee q)
+\]
+主析取范式为
+\[
+(\neg p \wedge \neg q) \vee (\neg p \wedge q) \vee (p \wedge q)  
+\]
+(2)
+\begin{table}[h!]
+  \begin{center}
+    \caption{$p \vee q \to (q \to r)$ 真值表}
+    \setlength{\tabcolsep}{8mm} {
+    \begin{tabular}{|c|c|c|c|c|c|} 
+      \textbf{$p$} & \textbf{$q$} & \textbf{$r$} & \textbf{$p \vee q$} & \textbf{$q \to r$} & \textbf{$p \vee q \to (q \to r)$}\\
+      \hline
+      0 & 0 & 0 & 0 & 1 & 1\\
+      0 & 0 & 1 & 0 & 1 & 1\\
+      0 & 1 & 0 & 1 & 0 & 0\\
+      0 & 1 & 1 & 1 & 1 & 1\\
+      1 & 0 & 0 & 1 & 1 & 1\\
+      1 & 0 & 1 & 1 & 1 & 1\\
+      1 & 1 & 0 & 1 & 0 & 0\\
+      1 & 1 & 1 & 1 & 1 & 1\\
+    \end{tabular} }
+  \end{center}
+\end{table}
+\\
+从而 $p \vee q \to (q \to r)$ 的主合取范式为
+\[
+(p \vee \neg q \vee r) \wedge (\neg p \vee \neg q \vee r)  
+\]
+主析取范式为
+\[
+(\neg p \wedge \neg q \wedge \neg r) \vee (\neg p \wedge \neg q \wedge r) \vee 
+(\neg p \wedge q \wedge r) \vee (p \wedge \neg q \wedge \neg r) \vee (p \wedge \neg q \wedge r)
+\vee (p \wedge q \wedge r)  
+\]
+\newpage 
+(3)
+\begin{table}[h!]
+  \begin{center}
+    \caption{$(p \to p \wedge q) \vee r$ 真值表}
+    \setlength{\tabcolsep}{8mm} {
+    \begin{tabular}{|c|c|c|c|c|c|} 
+      \textbf{$p$} & \textbf{$q$} & \textbf{$r$} & \textbf{$p \wedge q$} & \textbf{$p \to p \wedge q$} & \textbf{$(p \to p \wedge q) \vee r$}\\
+      \hline
+      0 & 0 & 0 & 0 & 1 & 1\\
+      0 & 0 & 1 & 0 & 1 & 1\\
+      0 & 1 & 0 & 0 & 1 & 1\\
+      0 & 1 & 1 & 0 & 1 & 1\\
+      1 & 0 & 0 & 0 & 0 & 0\\
+      1 & 0 & 1 & 0 & 0 & 1\\
+      1 & 1 & 0 & 1 & 1 & 1\\
+      1 & 1 & 1 & 1 & 1 & 1\\
+    \end{tabular} }
+  \end{center}
+\end{table}
+\\
+从而主合取范式为
+\[
+(\neg p \vee q \vee r)  
+\]
+主析取范式为
+\[
+(\neg p \wedge \neg q \wedge \neg r) \vee (\neg p \wedge \neg q \wedge r) \vee 
+(\neg p \wedge q \wedge \neg r) \vee (\neg p \wedge q \wedge r) \vee (p \wedge \neg q \wedge r) \vee
+(p \wedge q \wedge \neg r) \vee (p \wedge q \wedge r)
+\]
+\end{document}

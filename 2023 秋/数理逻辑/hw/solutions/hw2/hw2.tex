@@ -1,0 +1,193 @@
+\documentclass{article}
+\usepackage{xeCJK}
+\usepackage{amsmath}
+\usepackage{geometry}
+
+
+\setCJKmainfont{Microsoft YaHei}
+\linespread{1.5}
+\setlength{\parindent}{0pt}
+\geometry{a4paper,scale=0.75}
+
+\begin{document}
+1.\\
+(1)
+\[
+\begin{aligned}
+p \wedge \neg q \leftrightarrow \neg p \vee q & \iff (p \wedge \neg q \to p \vee q) \wedge (p \vee q \to p \wedge \neg q) \\
+                                              & \iff (\neg (p \to q) \to (\neg p \to q)) \wedge ((\neg p \to q) \to (\neg (p \to q))) \\
+                                              & \iff \neg ((\neg (p \to q) \to (\neg p \to q)) \to \neg ((\neg p \to q) \to (\neg (p \to q))))
+\end{aligned}
+\]
+(2)
+\[
+\begin{aligned}
+\neg p \vee q \vee r \leftrightarrow p & \iff (p \to q) \vee r \leftrightarrow p \\
+                                       & \iff (\neg (p \to q) \to r) \leftrightarrow p \\
+                                       & \iff ((\neg (p \to q) \to r) \to p) \wedge (p \to (\neg (p \to q) \to r)) \\
+                                       & \iff \neg (((\neg (p \to q) \to r) \to p) \to \neg (p \to (\neg (p \to q) \to r)))
+\end{aligned}
+\]
+(3)
+\[
+\begin{aligned}
+p \vee (p \wedge q) \leftrightarrow p & \iff p \vee (\neg (p \to \neg q)) \leftrightarrow p \\
+                                      & \iff \neg p (\neg (p \to \neg q)) \leftrightarrow p \\
+                                      & \iff (\neg p (\neg (p \to \neg q)) \to p) \wedge (p \to \neg p (\neg (p \to \neg q))) \\
+                                      & \iff \neg ((\neg p (\neg (p \to \neg q)) \to p) \to \neg (p \to \neg p (\neg (p \to \neg q))))                   
+\end{aligned}    
+\]
+2.\\
+(1)
+\[
+\begin{aligned}
+\neg p \vee q & \iff (p \downarrow p) \vee q \\
+              & \iff ((p \downarrow p) \downarrow q) \downarrow ((p \downarrow p) \downarrow q)\\
+\neg p \vee q & \iff \neg (p \wedge \neg q) \\
+              & \iff p \uparrow \neg q \\
+              & \iff p \uparrow (q \uparrow q) 
+\end{aligned}
+\]
+
+(2)
+\[
+\begin{aligned}
+p \wedge \neg q & \iff \neg (\neg p \vee q) \\
+                & \iff \neg p \downarrow q \\
+                & \iff (p \downarrow p) \downarrow q \\
+p \wedge \neg q & \iff p \wedge (q \uparrow q) \\
+                & \iff (p \uparrow (q \uparrow q)) \uparrow (p \uparrow (q \uparrow q))
+\end{aligned}    
+\]
+(3)
+\[
+\begin{aligned}
+\neg p \vee \neg q & \iff (p \downarrow p) \vee (q \downarrow q) \\
+                   & \iff ((p \downarrow p) \downarrow (q \downarrow q)) \downarrow ((p \downarrow p) \downarrow (q \downarrow q)) \\
+\neg p \vee \neg q & \iff \neg (p \wedge q) \\
+                   & \iff p \uparrow q
+\end{aligned}    
+\]
+(4)
+\[
+\begin{aligned}
+p \leftrightarrow q & \iff (p \wedge q) \vee (\neg p \wedge \neg q) \\
+                    & \iff \neg \neg (\neg (\neg p \vee \neg q) \vee \neg (p \vee q)) \\
+                    & \iff \neg ((\neg p \downarrow \neg q) \downarrow (p \downarrow q)) \\
+                    & \iff \neg (((p \downarrow p) \downarrow (q \downarrow q)) \downarrow (p \downarrow q)) \\
+                    & \iff (((p \downarrow p) \downarrow (q \downarrow q)) \downarrow (p \downarrow q)) \downarrow (((p \downarrow p) \downarrow (q \downarrow q)) \downarrow (p \downarrow q)) \\
+p \leftrightarrow q & \iff (p \wedge q) \vee (\neg p \wedge \neg q) \\
+                    & \iff \neg (\neg (p \wedge q) \wedge \neg (\neg p \wedge \neg q)) \\
+                    & \iff \neg ((p \uparrow q) \wedge (\neg p \uparrow \neg q)) \\
+                    & \iff (p \uparrow q) \uparrow (\neg p \uparrow \neg q) \\
+                    & \iff (p \uparrow q) \uparrow ((p \uparrow p) \uparrow (q \uparrow q)) 
+\end{aligned}    
+\]
+(5)
+\[
+\begin{aligned}
+(p \to \neg q) \to \neg r & \iff (\neg p \vee \neg q) \to \neg r \\
+                          & \iff \neg (\neg p \vee \neg q) \vee \neg r \\
+                          & \iff \neg \neg ((\neg p \vee \neg q) \vee \neg r) \\
+                          & \iff \neg ((\neg p \downarrow \neq q) \downarrow \neg r) \\
+                          & \iff \neg (((p \downarrow p) \downarrow (q \downarrow q)) \downarrow (r \downarrow r)) \\
+                          & \iff (((p \downarrow p) \downarrow (q \downarrow q)) \downarrow (r \downarrow r)) \downarrow (((p \downarrow p) \downarrow (q \downarrow q)) \downarrow (r \downarrow r)) \\
+(p \to \neg q) \to \neg r & \iff (\neg p \vee \neg q) \to \neg r \\
+                          & \iff \neg (\neg p \vee \neg q) \vee \neg r \\
+                          & \iff \neg (\neg(p \wedge q) \wedge r) \\
+                          & \iff (p \uparrow q) \uparrow r
+\\\end{aligned}    
+\]
+3.\\
+(1)\\
+\[
+\begin{aligned}
+&(1)(A \to (A \to B)) \to ((A \to A) \to (A \to B))\quad \mbox{(公理2)}\\
+&(2)(A \to A) \to ((A \to (A \to B)) \to (A \to B))\quad \mbox{(定理3)}\\
+&(3)A \to A \quad \mbox{(定理1)}\\
+&(4)(A \to (A \to B)) \to (A \to B) \quad \mbox{((3)(2)rmp分离规则)}
+\end{aligned}
+\]
+(3)
+\[
+\begin{aligned}
+&(1)\neg (B \to C) \to \neg A \quad \mbox{(已知)}\\
+&(2)(\neg (B \to C) \to \neg A) \to (A \to (B \to C)) \quad \mbox{(公理3)} \\
+&(3)A \to (B \to C) \quad \mbox{((1)(2)rmp分离规则)}\\
+&(4)B \to (A \to C) \quad \mbox{(定理2)}\\
+&(5)A \to B \quad \mbox{(已知)} \\
+&(6)A \to (A \to C) \quad \mbox{((5)(4)定理8)} \\
+&(7)(A \to (A \to C)) \to ((A \to A) \to (A \to C)) \quad \mbox{(公理2)} \\
+&(8)(A \to A) \to (A \to C) \quad \mbox{((6)(7)rmp分离规则)} \\
+&(9)A \to A \quad \mbox{(定理1)} \\
+&(10)A \to C \quad \mbox{((9)(8)rmp分离规则)}
+\end{aligned}
+\]
+(5)
+\[
+\begin{aligned}
+&(1)(C \to D) \to ((B \to C) \to (B \to D)) \quad \mbox{(定理4)}\\
+&(2)((B \to C) \to (B \to D)) \to ((A \to (B \to C)) \to (A \to (B \to D)))\quad \mbox{(定理4)} \\
+&(3)(C \to D) \to ((A \to (B \to C)) \to (A \to (B \to D))) \quad \mbox{((1)(2)定理8)}\\
+&(4)(A \to (B \to C)) \to ((C \to D) \to (A \to (B \to D)))\quad \mbox{(定理3)}\\
+\end{aligned}
+\]
+(7)
+\[
+\begin{aligned}
+&(1)\neg A \to (A \to B) \quad \mbox{(定理6)}\\
+&(2)(\neg A \to (A \to B)) \to (\neg (A \to B) \to A)  \quad \mbox{(定理14)} \\
+&(3)\neg (A \to B) \to A \quad \mbox{((1)(2)rmp分离规则)}\\
+&(4)A \to A \quad \mbox{(定理1)}\\
+&(5)((A \to B) \to A) \to A \quad \mbox{((3)(4)定理18)} \\
+&(6)(((A \to B) \to A) \to A) \to ((B \to ((A \to B) \to A)) \to (B \to A)) \quad \mbox{(定理4)} \\
+&(7)(B \to ((A \to B) \to A)) \to (B \to A) \quad \mbox{((5)(6)rmp分离规则)} \\
+&(8)((A \to B) \to (B \to A)) \to (B \to ((A \to B) \to A)) \quad \mbox{(定理3)} \\
+&(9)((A \to B) \to (B \to A)) \to (B \to A) \quad \mbox{((7)(8)定理8)} \\
+\end{aligned}
+\]
+(9)
+\[
+\begin{aligned}
+&(1)\neg A \to (A \to B) \quad \mbox{(定理6)}\\
+&(2)(\neg A \to (A \to B)) \to (\neg (A \to B) \to A)  \quad \mbox{(定理14)} \\
+&(3)\neg (A \to B) \to A \quad \mbox{((1)(2)rmp分离规则)}\\
+&(4)A \to A \quad \mbox{(定理1)}\\
+&(5)((A \to B) \to A) \to A \quad \mbox{(定理18)}\\
+\end{aligned}
+\]
+(11)
+\[
+\begin{aligned}
+&(1)\neg A \to (A \to B) \quad \mbox{(定理6)}\\
+&(2)(\neg A \to (A \to B)) \to (\neg (A \to B) \to A) \quad \mbox{(定理14)} \\
+&(3)\neg (A \to B) \to A \quad \mbox{((1)(2)rmp分离规则)}\\
+&(4)(\neg (A \to B) \to A) \to ((\neg C \to \neg (A \to B)) \to (\neg C \to A)) \quad \mbox{(定理4)}\\
+&(5)(\neg C \to \neg (A \to B)) \to (\neg C \to A) \quad \mbox{((3)(4)rmp分离规则)} \\
+&(6)((A \to B) \to C) \to (\neg C \to \neg (A \to B)) \quad \mbox{(定理13)} \\
+&(7)((A \to B) \to C) \to (\neg C \to A) \quad \mbox{((6)(5)定理8)} \\
+&(8)(\neg C \to A) \to ((A \to C) \to (\neg C \to C)) \quad \mbox{(定理5)} \\
+&(9)((A \to B) \to C) \to ((A \to C) \to (\neg C \to C)) \quad \mbox{((7)(8)定理8)} \\
+&(10)((\neg C \to C) \to C) \to (((A \to C) \to (\neg C \to C)) \to ((A \to C) \to C)) \quad \mbox{(定理4)} \\
+&(11)(\neg C \to C) \to C \quad \mbox{(定理9)} \\
+&(12)((A \to C) \to (\neg C \to C)) \to ((A \to C) \to C) \quad \mbox{((11)(10)rmp分离规则)}\\
+&(13)((A \to B) \to C) \to ((A \to C) \to C) \quad \mbox{((9)(12)定理8)}
+\end{aligned}
+\]
+(13)
+\[
+\begin{aligned}
+&(1)C \to (((A \to B) \to B) \to C) \quad \mbox{(公理1)}\\
+&(2)(C \to (((A \to B) \to B) \to C)) \to ((B \to C) \to (C \to (((A \to B) \to B) \to C)))\quad \mbox{(公理1)} \\
+&(3)(B \to C) \to (C \to (((A \to B) \to B) \to C)) \quad \mbox{((1)(2)rmp分离规则)}\\
+&(4)C \to ((B \to C) \to (((A \to B) \to B) \to C)) \quad \mbox{(定理3)}\\
+&(5)\neg A \to (A \to B) \quad \mbox{(定理6)} \\
+&(6)(\neg A \to (A \to B)) \to (((A \to B) \to B) \to (\neg A \to B))\quad \mbox{(定理5)} \\
+&(7)((A \to B) \to B) \to (\neg A \to B) \quad \mbox{((5)(6)rmp分离规则)} \\
+&(8)\neg A \to (((A \to B) \to B) \to B) \quad \mbox{(定理3)} \\
+&(9)(((A \to B) \to B) \to B) \to ((B \to C) \to (((A \to B) \to B) \to C)) \quad \mbox{(定理5)} \\
+&(10)\neg A \to ((B \to C) \to (((A \to B) \to B) \to C)) \quad \mbox{((8)(9)定理8)} \\
+&(11)(A \to C) \to ((B \to C) \to (((A \to B) \to B) \to C)) \quad \mbox{((4)(10)定理18)} \\
+\end{aligned}
+\]
+\end{document}

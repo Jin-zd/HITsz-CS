@@ -1,0 +1,6 @@
+*.bin
+build/
+
+__pycache__/
+
+*.pth
