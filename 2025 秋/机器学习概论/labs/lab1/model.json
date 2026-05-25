@@ -1,0 +1,104 @@
+{
+  "target": "weather",
+  "tree": {
+    "attribute": "rays",
+    "prediction": null,
+    "majority_label": "cloudy",
+    "children": {
+      "high": {
+        "attribute": "wind",
+        "prediction": null,
+        "majority_label": "sunny",
+        "children": {
+          "east": {
+            "attribute": null,
+            "prediction": "sunny",
+            "majority_label": "sunny",
+            "children": {}
+          },
+          "south": {
+            "attribute": null,
+            "prediction": "sunny",
+            "majority_label": "sunny",
+            "children": {}
+          },
+          "north": {
+            "attribute": null,
+            "prediction": "sunny",
+            "majority_label": "sunny",
+            "children": {}
+          },
+          "west": {
+            "attribute": "humidity",
+            "prediction": null,
+            "majority_label": "cloudy",
+            "children": {
+              "mid": {
+                "attribute": null,
+                "prediction": "sunny",
+                "majority_label": "sunny",
+                "children": {}
+              },
+              "dry": {
+                "attribute": null,
+                "prediction": "cloudy",
+                "majority_label": "cloudy",
+                "children": {}
+              },
+              "wet": {
+                "attribute": null,
+                "prediction": "cloudy",
+                "majority_label": "cloudy",
+                "children": {}
+              }
+            }
+          }
+        }
+      },
+      "normal": {
+        "attribute": "wind",
+        "prediction": null,
+        "majority_label": "rainy",
+        "children": {
+          "south": {
+            "attribute": "humidity",
+            "prediction": null,
+            "majority_label": "cloudy",
+            "children": {
+              "wet": {
+                "attribute": null,
+                "prediction": "cloudy",
+                "majority_label": "cloudy",
+                "children": {}
+              },
+              "mid": {
+                "attribute": null,
+                "prediction": "rainy",
+                "majority_label": "rainy",
+                "children": {}
+              }
+            }
+          },
+          "east": {
+            "attribute": null,
+            "prediction": "cloudy",
+            "majority_label": "cloudy",
+            "children": {}
+          },
+          "north": {
+            "attribute": null,
+            "prediction": "rainy",
+            "majority_label": "rainy",
+            "children": {}
+          },
+          "west": {
+            "attribute": null,
+            "prediction": "rainy",
+            "majority_label": "rainy",
+            "children": {}
+          }
+        }
+      }
+    }
+  }
+}
